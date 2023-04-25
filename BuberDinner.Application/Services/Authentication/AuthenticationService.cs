@@ -16,12 +16,14 @@ public class AuthenticationService : IAuthenticationService
         // Create user
 
         // Create JWT Token
+        var userId = Guid.NewGuid();
+        var token = _jWTGenerator.GenerateToken(userId, firstName, lastName);
         return new AuthenticationResult(
             Guid.NewGuid(),
             firstName,
             lastName,
             email,
-            "token"
+            token
             );
     }
 
