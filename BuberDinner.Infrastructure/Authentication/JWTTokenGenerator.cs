@@ -2,6 +2,13 @@
 
 public class JWTTokenGenerator : IJWTTokenGenerator
 {
+    private readonly IDateTimeProvider _dateTimeProvider;
+
+    public JWTTokenGenerator(IDateTimeProvider dateTimeProvider)
+    {
+        _dateTimeProvider = dateTimeProvider;
+    }
+
     public string GenerateToken(Guid userId, string firstName, string lastName)
     {
         var signingCredentials = new SigningCredentials(
@@ -19,7 +26,7 @@ public class JWTTokenGenerator : IJWTTokenGenerator
 
         var securityToken = new JwtSecurityToken(
             issuer: "BuberDinner",
-            expires: DateTime.Now.AddDays(1),
+            expires: _dateTimeProvider.UtcNow.AddDays(10),
             claims: claims,
             signingCredentials: signingCredentials);
         return new JwtSecurityTokenHandler().WriteToken(securityToken);

@@ -4,4 +4,6 @@ global using System.IdentityModel.Tokens.Jwt;
 global using System.Security.Claims;
 global using Microsoft.IdentityModel.Tokens;
 global using System.Text;
+global using BuberDinner.Application.Common.Services;
+global using BuberDinner.Infrastructure.Services;
 global using BuberDinner.Infrastructure.Authentication;
