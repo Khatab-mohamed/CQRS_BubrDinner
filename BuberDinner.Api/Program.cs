@@ -3,7 +3,7 @@ var builder = WebApplication.CreateBuilder(args);
     // Add services to the container.
     builder.Services
         .AddApplication()
-        .AddInfrasturcture();
+        .AddInfrasturcture(builder.Configuration);
 
     builder.Services.AddControllers();
     builder.Services.AddEndpointsApiExplorer();
@@ -24,5 +24,4 @@ var app = builder.Build();
     app.MapControllers();
 
     app.Run();
-
 }

@@ -2,9 +2,9 @@
 
 public class AuthenticationService : IAuthenticationService
 {
-    private readonly IJWTTokenGenerator _jWTGenerator;
+    private readonly IJwtTokenGenerator _jWTGenerator;
 
-    public AuthenticationService(IJWTTokenGenerator jWTGenerator)
+    public AuthenticationService(IJwtTokenGenerator jWTGenerator)
     {
         _jWTGenerator = jWTGenerator;
     }

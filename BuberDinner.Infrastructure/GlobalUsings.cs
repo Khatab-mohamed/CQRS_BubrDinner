@@ -7,3 +7,5 @@ global using System.Text;
 global using BuberDinner.Application.Common.Services;
 global using BuberDinner.Infrastructure.Services;
 global using BuberDinner.Infrastructure.Authentication;
+global using Microsoft.Extensions.Configuration;
+global using Microsoft.Extensions.Options;
