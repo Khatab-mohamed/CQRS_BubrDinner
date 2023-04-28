@@ -9,3 +9,5 @@ global using BuberDinner.Infrastructure.Services;
 global using BuberDinner.Infrastructure.Authentication;
 global using Microsoft.Extensions.Configuration;
 global using Microsoft.Extensions.Options;
+global using BuberDinner.Application.Preiestance;
+global using BuberDinner.Domain.Entities;
