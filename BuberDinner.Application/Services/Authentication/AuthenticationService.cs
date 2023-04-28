@@ -57,8 +57,7 @@ public class AuthenticationService : IAuthenticationService
 
         var token = _jWTGenerator.GenerateToken(user);
 
-        return new AuthenticationResult(
-           user,
+        return new AuthenticationResult(user,
            token
            );
     }
