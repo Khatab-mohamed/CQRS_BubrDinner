@@ -5,8 +5,7 @@ var builder = WebApplication.CreateBuilder(args);
         .AddApplication()
         .AddInfrasturcture(builder.Configuration);
 
-    builder.Services.AddControllers(options =>
-        options.Filters.Add<ErrorHandlingFilterAttribute>());
+    builder.Services.AddControllers();
 
     builder.Services.AddEndpointsApiExplorer();
     builder.Services.AddSwaggerGen();
@@ -16,6 +15,7 @@ var app = builder.Build();
 {
     // Configure the HTTP request pipeline.
     // app.UseMiddleware<ErrorHandlingMiddleware>();
+    app.UseExceptionHandler("/error");
     app.UseAuthorization();
     app.UseHttpsRedirection();
     app.UseSwagger();
