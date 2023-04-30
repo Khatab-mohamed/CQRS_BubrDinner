@@ -4,3 +4,6 @@ global using BuberDinner.Infrasturcture;
 global using Microsoft.AspNetCore.Mvc;
 global using System.Net;
 global using System.Text.Json;
+global using BuberDinner.Api.Middleware;
+global using Microsoft.AspNetCore.Mvc.Filters;
+global using BuberDinner.Api.Filters;

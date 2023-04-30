@@ -1,5 +1,3 @@
-using BuberDinner.Api.Middleware;
-
 var builder = WebApplication.CreateBuilder(args);
 {
     // Add services to the container.
@@ -7,7 +5,9 @@ var builder = WebApplication.CreateBuilder(args);
         .AddApplication()
         .AddInfrasturcture(builder.Configuration);
 
-    builder.Services.AddControllers();
+    builder.Services.AddControllers(options =>
+        options.Filters.Add<ErrorHandlingFilterAttribute>());
+
     builder.Services.AddEndpointsApiExplorer();
     builder.Services.AddSwaggerGen();
 }
@@ -15,7 +15,7 @@ var builder = WebApplication.CreateBuilder(args);
 var app = builder.Build();
 {
     // Configure the HTTP request pipeline.
-    app.UseMiddleware<ErrorHandlingMiddleware>();
+    // app.UseMiddleware<ErrorHandlingMiddleware>();
     app.UseAuthorization();
     app.UseHttpsRedirection();
     app.UseSwagger();
